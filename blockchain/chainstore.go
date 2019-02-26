@@ -102,6 +102,7 @@ func (c *ChainStore) loop() {
 			switch task := t.(type) {
 			case *persistBlockTask:
 				c.handlePersistBlockTask(task.block)
+				log.Debugf("!!!!!!!!!!1")
 				task.reply <- true
 				tcall := float64(time.Now().Sub(now)) / float64(time.Second)
 				log.Debugf("handle block exetime: %g num transactions:%d", tcall, len(task.block.Transactions))
