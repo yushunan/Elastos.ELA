@@ -71,6 +71,7 @@ func (h *DPOSOnDutyHandler) TryStartNewConsensus(b *types.Block) bool {
 	return result
 }
 
+//try to create and send a proposal tx for kicking out arbiters that don't work
 func (h *DPOSOnDutyHandler) tryCreateInactiveArbitratorsTx() bool {
 	if h.proposalDispatcher.IsViewChangedTimeOut() {
 		tx, err := h.proposalDispatcher.CreateInactiveArbitrators()
